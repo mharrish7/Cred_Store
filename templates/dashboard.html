@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/dash.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="shows">
+        <button class="closeshow">BACK</button>
+        <div class="shows2">
+            <form action="" class="enter">
+            <label for="web">Website name / url </label>
+            <input type="text" name="web" id="q3">
+            <label for="email">Username/email</label>
+            <input type="text" name="email" id="q1">
+            <label for="pass">Password</label>
+            <input type="password" name="pass" id="q2">
+            <input type="submit" value="Submit form">
+            <p id="res"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="pass21">
+        <button class="closepass">BACK</button>
+        <div class="pass22">
+            <form action="" class="enterp">
+            <label for="pass">Enter User Password</label>
+            <input type="password" name="pass" id="pq">
+            <input type="submit" value="Submit form">
+            <p id="resp"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="topbar">
+        <h1 class="head">CredStore</h1>
+        <p class="user">Welcome {{data[0][1]}}</p>
+        <button class="logout">LOGOUT</button>
+        
+    </div>
+
+    <div class="post" style="overflow-y:auto; height:30rem;">
+        <h1>Credentials</h1>
+        <button class="add">ADD</button>
+        {% for i in posts %}
+        <div class="passeg {{i[0]}}-{{i[1]}}">
+            <hr>
+            <h2> {{i[0]}}</h2>
+            <p> Username : {{i[1]}}</p>
+            <button class="showp {{i[0]}}-{{i[1]}}">Show pass</button>
+            <button class="delp {{i[0]}}-{{i[1]}}">Delete</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{url_for('static',filename = 'js/dash.js')}}"></script>
+</body>
+</html>
